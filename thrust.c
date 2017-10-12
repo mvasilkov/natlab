@@ -31,8 +31,10 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
 
 uint64_t x; /* The state can be seeded with any value. */
  
-// Call next() to get 64 pseudo-random bits, call it again to get more bits.
-static inline uint64_t next(void) {
+/* Call next() to get 64 pseudo-random bits, call it again to get more bits. */
+// ASIDE: Edited to remove "static inline" modifiers; that is appropriate for the
+// speed test this was brought in from, but not normal code.
+uint64_t next(void) {
 	x += 0x9E3779B97F4A7C15ULL; // golden-ratio-related
 	const uint64_t z = (x ^ (x >> 30)) * 0x5851F42D4C957F2DULL; // L'Ecuyer
 	return z ^ (z >> 28);
