@@ -21,10 +21,13 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
    Thrust vs. 6.820 GB/s for Xoroshiro128+. This seems dependent on how
    well it is allowed to use the processor; on a virtual machine permitted
    two cores of the same processor, Thrust performed miserably compared to
-   Xoroshiro, though it was roughly 1.5x faster than SplitMix64. It may
-   currently pass BigCrush with the given constants, or may require some
-   adjustments; only one failure has been found on a different (but close)
-   constant increment.
+   Xoroshiro, though it was roughly 1.5x faster than SplitMix64. It passes
+   PractRand up to 512 GB without failures, and that test is still running,
+   so it is likely to pass 1TB at least. It passes BigCrush with the given
+   constant, 0x6A5D39EAE116586A, testing one seed (the seed used so far is
+   7664345821815920749). One failure has been found on a different (but
+   close) constant increment, so there may be some tweaking required to the
+   current increment if some seeds given to BigCrush show issues.
    
    Thanks to Sebastiano Vigna, who helped find weak points in earlier
    iterations of the generator that led to the current version.
@@ -47,12 +50,13 @@ uint64_t next(void) {
    Slight changes to the constant 0x6A5D39EAE116586A seem to affect BigCrush
    results somewhat; an earlier try using 0x6A5D39EAE1165866 had one failure
    (just barely) on one seed, but the current constant had fewer anomalies in
-   PractRand testing. This passes PractRand with no failures and few anomalies
-   up to at least 64GB, and based on similar attempts that were tested longer,
-   it can probably pass much more (at least 1TB is expected to pass). If you
-   have access to statistical tests for RNGs, you are encouraged to try other
-   constants if you feel you can improve on the ones used, or have a
-   theoretical foundation for a better choice.
+   PractRand testing, and passed BigCrush with no failures. This passes
+   PractRand with no failures and few anomalies up to at least 512GB, and
+   based on similar attempts that were tested longer, it can probably pass
+   much more (at least 1TB is expected to pass). If you have access to
+   statistical tests for RNGs, you are encouraged to try other constants if
+   you feel you can improve on the ones used, or have a theoretical foundation
+   for a better choice.
    
    You can check the revision history on this Gist to see previous versions.
    This was changed to use a variable multiplier on October 19, 2017.
