@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "nan": "^2.18.0",
+    "natlib": "^0.1.14"
+  },
+  "scripts": {
+    "build": "node-gyp rebuild"
+  }
+}

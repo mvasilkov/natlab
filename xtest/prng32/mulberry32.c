@@ -22,7 +22,7 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
    hardware. It passes gjrand's 13 tests with no failures and a total P-value
    of 0.984 (where 1 is perfect and 0.1 or less is a failure) on 4GB of
    generated data. That's a quarter of the full period. On the same amount, the
-   comparable SplitMix32 generator has a total P-value of 0, and had multiple 
+   comparable SplitMix32 generator has a total P-value of 0, and had multiple
    failures of extreme significance; these were two rank 1 minor failures but
    also two more at rank 20 and rank 21, each an irredeemable failure on its
    own. Testing on the full period (2 to the 32 numbers with 4 bytes each, for
@@ -42,7 +42,7 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
  */
 
 uint32_t x; /* The state can be seeded with any value. */
- 
+
 /* Call next() to get 32 pseudo-random bits, call it again to get more bits. */
 // It may help to make this inline, but you should see if it benefits your code.
 uint32_t next(void) {
