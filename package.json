@@ -1,5 +1,7 @@
 {
   "type": "module",
+  "author": "Mark Vasilkov (https://github.com/mvasilkov)",
+  "license": "SEE LICENSE IN LICENSE",
   "dependencies": {
     "natlib": "^0.1.14"
   }
