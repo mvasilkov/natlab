@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "natlib": "^0.1.14"
+  }
+}
