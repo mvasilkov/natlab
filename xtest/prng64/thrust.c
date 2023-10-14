@@ -44,7 +44,7 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
    will do well on BigCrush. Some constants of course do better than others on
    different seeds in the different testing batteries, so the current constant
    is likely to have some failures on some seeds.
-   
+
    Thanks to Sebastiano Vigna, who helped find weak points in earlier
    iterations of the generator that led to the current version, and David John
    from the prng mailing list, who showed a weakness of an earlier constant
@@ -54,7 +54,7 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
 uint64_t x; /* The state can be seeded with any _odd_ value, so it's
                recommended that you run `x |= 1ULL` when setting the state with
 	       arbitrary or user-entered data. */
- 
+
 /* Call next() to get 64 pseudo-random bits, call it again to get more bits. */
 // It may help to make this inline, but you should see if it benefits your code.
 uint64_t next(void) {
@@ -74,7 +74,7 @@ uint64_t next(void) {
    multiple 0 bits above it. If you have access to statistical tests for RNGs,
    you are encouraged to try other constants if you feel you can improve on
    the ones used, or have a theoretical foundation for a better choice.
-   
+
    You can check the revision history on this Gist to see previous versions.
    This was changed to use a variable multiplier on October 19, 2017; that
    version passed PractRand but failed binary rank tests on gjrand (so does
@@ -82,7 +82,7 @@ uint64_t next(void) {
    that behavior, the constant and shifts were changed on November 1, 2017,
    and now it passes all gjrand tests without failures while still passing
    PractRand up to 4TB.
-   
+
    Versions before that can be seen in the revision history, but they don't
    seem to hold out against PractRand for very long at all, failing at 32GB
    on Gap-16 tests (many thanks to Sebastiano Vigna for spotting this). They
