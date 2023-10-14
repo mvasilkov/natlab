@@ -5,7 +5,7 @@
  */
 'use strict'
 
-import { createRequire } from 'module'
+import { createRequire } from 'node:module'
 
 import { Mulberry32 } from 'natlib/prng/Mulberry32.js'
 import { SplitMix32 } from 'natlib/prng/SplitMix32.js'
