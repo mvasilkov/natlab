@@ -7,6 +7,8 @@
 
 #include "thrust.c"
 
+#define VECTOR_LENGTH 100
+
 void print_vector(uint64_t start, int length)
 {
     x = start | 1ULL;
@@ -22,10 +24,10 @@ void print_vector(uint64_t start, int length)
 int main(void)
 {
     printf("export default {\n");
-    print_vector(1ULL, 10);
-    print_vector(UINT8_MAX, 10);
-    print_vector(UINT16_MAX, 10);
-    print_vector(UINT32_MAX, 10);
-    print_vector(UINT64_MAX, 10);
+    print_vector(1ULL, VECTOR_LENGTH);
+    print_vector(UINT8_MAX, VECTOR_LENGTH);
+    print_vector(UINT16_MAX, VECTOR_LENGTH);
+    print_vector(UINT32_MAX, VECTOR_LENGTH);
+    print_vector(UINT64_MAX, VECTOR_LENGTH);
     printf("}\n");
 }
