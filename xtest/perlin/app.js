@@ -18,7 +18,7 @@ const modulePath = fileURLToPath(import.meta.url)
 const __dirname = dirname(modulePath)
 
 function pythonPerlin(x, y, z) {
-    const p = spawn(python, [join(__dirname, 'rosettacode.py'), x, y, z])
+    const p = spawn(python, [join(__dirname, 'perlin_noise.py'), x, y, z])
     return new Promise((resolve, reject) => {
         p.stdout.on('data', data => {
             resolve(parseFloat(data.toString('utf8')))
